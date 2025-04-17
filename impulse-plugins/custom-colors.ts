@@ -160,7 +160,7 @@ function generateCSS(name: string, color: string): string {
 }
 
 // Chat Commands
-export const commands: Chat.ChatCommands = {
+export const commands: Chat.Commands = {
     customcolor: {
         set(target: string, room: ChatRoom, user: User): void {
             this.checkCan('globalban');
