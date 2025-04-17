@@ -1,7 +1,6 @@
 /* Economy System Commands
  * Credits: Unknown
- * Updates & Typescript Conversion:
- * Prince Sky
+ * Updated By: Prince Sky
  */
 
 import { FS } from '../lib/fs';
@@ -159,7 +158,7 @@ export class Economy {
 global.Economy = Economy;
 
 // ================ Chat Commands ================
-export const commands: ChatCommands = {
+export const commands: Chat.Commands = {
   // User Commands
   atm: 'balance',
   balance(target, room, user) {
@@ -361,7 +360,7 @@ export const commands: ChatCommands = {
   economyhelp(target, room, user) {
     if (!this.runBroadcast()) return;
     this.sendReplyBox(
-      `<div><b><center>Economy Commands By ${Impulse.nameColor('Prince Sky', true, true)}</center></b>` +
+      `<details><summary><b><center>Economy Commands By ${Impulse.nameColor('Prince Sky', true, true)}</center></b></summary>` +
       `<ul><li><code>/balance</code> (or <code>/atm</code>) - Check your or another user's ${CURRENCY} balance.</li>` +
       `<li><code>/givemoney [user], [amount] ,[reason]</code> - Give a specified amount of ${CURRENCY} to a user. (Requires: @ and higher).</li>` +
       `<li><code>/takemoney [user], [amount] ,[reason]</code> - Take a specified amount of ${CURRENCY} from a user. (Requires: @ and higher).</li>` +
@@ -370,6 +369,6 @@ export const commands: ChatCommands = {
       `<li><code>/resetmoneyall [reason]</code> - Reset all users' ${CURRENCY} balances to ${DEFAULT_AMOUNT}. (Requires: @ and higher).</li>` +
       `<li><code>/richestusers</code> - View the top 100 users with the most ${CURRENCY}.</li>` +
       `<li><code>/economylogs [user], [page]</code> - View economy logs, optionally filtered by user and page number.</li>` +
-      `</ul></div>`);
+      `</ul></details>`);
   },
 };
