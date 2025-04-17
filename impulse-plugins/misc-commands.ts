@@ -118,7 +118,7 @@ const messages: string[] = [
 ];
 
 // Chat Commands
-export const commands: Chat.ChatCommands = {
+export const commands: Chat.Commands = {
   // Clear chat in current room
   clearall(target: string, room: ChatRoom | null, user: User): void {
     if (room?.battle) {
