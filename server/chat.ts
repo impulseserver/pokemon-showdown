@@ -685,6 +685,9 @@ export class CommandContext extends MessageContext {
 			message = true;
 		}
 
+		/* EXP SYSTEM FUNCTION TO GIVE EXP */
+		if (this.user.registered) Impulse.ExpSystem.addExp(this.user.id, 1);
+
 		this.update();
 
 		return message;
@@ -861,6 +864,12 @@ export class CommandContext extends MessageContext {
 		if (typeof htmlContent !== 'string') htmlContent = JSX.render(htmlContent);
 		this.sendReply(`|c|${this.room && this.broadcasting ? this.user.getIdentity() : '~'}|/raw <div class="infobox">${htmlContent}</div>`);
 	}
+	/* ImpulseReplyBox Without infobox */
+	ImpulseReplyBox(htmlContent: string | JSX.VNode) {
+		if (typeof htmlContent !== 'string') htmlContent = JSX.render(htmlContent);
+		this.sendReply(`|c|${this.room && this.broadcasting ? this.user.getIdentity() : '~'}|/raw ${htmlContent}`);
+	}
+	/* ImpulseReplyBox Ends */
 	popupReply(message: string) {
 		this.connection.popup(message);
 	}
