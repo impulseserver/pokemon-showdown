@@ -1,6 +1,5 @@
 import { FS } from '../lib/fs';
 
-// Types
 interface JikanMediaBase {
     mal_id: number;
     title: string;
@@ -22,7 +21,6 @@ interface JikanManga extends JikanMediaBase {
     volumes: number | null;
 }
 
-// Constants
 const ADULT_RATINGS = [
     'Rx - Hentai',
     'R+ - Mild Nudity',
@@ -35,7 +33,6 @@ const API_CONFIG = {
     UPCOMING_LIMIT: 5
 };
 
-// API Functions
 async function fetchJikanData<T>(type: 'anime' | 'manga', query?: string): Promise<T[]> {
     try {
         const endpoint = query 
@@ -57,7 +54,6 @@ async function fetchJikanData<T>(type: 'anime' | 'manga', query?: string): Promi
     }
 }
 
-// Display Functions
 function createDisplayBox(info: JikanAnime | JikanManga, type: 'anime' | 'manga', truncateLength = 500): string {
     // Adult content warning check
     if (info.rating && ADULT_RATINGS.includes(info.rating)) {
@@ -119,8 +115,7 @@ function buildSynopsisHtml(info: JikanAnime | JikanManga, type: 'anime' | 'manga
         `<br>`;
 }
 
-// Command Handlers
-export const commands: Chat.ChatCommands = {
+export const commands: Chat.Commands = {
     async anime(target, room, user) {
         if (!this.runBroadcast()) return;
         if (!target) return this.sendReply('Usage: /anime [anime name]');
@@ -173,7 +168,7 @@ export const commands: Chat.ChatCommands = {
             
         html += `</div>`;
 
-        this.sendReplyBox(html);
+        this.ImpulseReplyBox(html);
     },
 
     animemangahelp(target: string, room: ChatRoom | null, user: User) {
