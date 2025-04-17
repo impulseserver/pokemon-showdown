@@ -247,7 +247,7 @@ export const commands: ChatCommands = {
   shophelp(target, room, user) {
     if (!this.runBroadcast()) return;
     this.sendReplyBox(
-      `<b><center>Shop Commands</center></b><br>` +
+      `<details><summary><b><center>Shop Commands By ${Impulse.nameColor('Prince Sky', true, true)}</center></b></summary>` +
       `<b>User Commands</b><br>` +
       `<ul>` +
       `<li><b>/shop</b> - View available items in the shop.</li>` +
@@ -260,7 +260,7 @@ export const commands: ChatCommands = {
         `<li><b>/additem [item name], [price], [description]</b> - Add an item to the shop.</li>` +
         `<li><b>/deleteitem [item name]</b> - Remove an item from the shop.</li>` +
         `<li><b>/receiptlogs [userid]</b> - View purchase logs, optionally filtered by [userid].</li>` +
-      `</ul>`
+      `</ul></details>`
     );
   },
 };
