@@ -58,7 +58,7 @@ async function updateIcons(): Promise<void> {
 }
 
 // Chat Commands
-export const commands: Chat.ChatCommands = {
+export const commands: Chat.Commands = {
 	usericon: 'icon',
 	icon: {
 		// Set an icon for a user
