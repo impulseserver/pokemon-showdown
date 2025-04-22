@@ -1,7 +1,6 @@
-/* Economy System Commands
- * Credits: Unknown
- * Updated By: Prince Sky
- */
+/*
+* @author musaddiktemkar
+*/
 
 import { FS } from '../lib/fs';
 
