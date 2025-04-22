@@ -552,6 +552,7 @@ exports.chatlogreader = 'fs';
  *     - gamemanagement: enable/disable games, minigames, and tournaments.
  *     - minigame: make minigames (hangman, polls, etc.).
  *     - game: make games.
+ *.    - manager: custom impulse rank for impulse plugins.
  */
 exports.grouplist = [
 	{
@@ -583,6 +584,7 @@ exports.grouplist = [
 		gamemanagement: true,
 		exportinputlog: true,
 		tournaments: true,
+		manager: true,
 	},
 	{
 		symbol: '&',
@@ -607,6 +609,7 @@ exports.grouplist = [
 		gamemanagement: true,
 		tournaments: true,
 		disableladder: true,
+		manager: true,
 	},		
 	{
 		symbol: '#',
