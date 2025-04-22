@@ -1,3 +1,7 @@
+/*
+* @author musaddiktemkar
+*/
+
 import { FS } from '../lib/fs';
 
 interface JikanMediaBase {
