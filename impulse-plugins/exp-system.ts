@@ -45,7 +45,6 @@ interface CooldownData {
   [userid: string]: number;
 }
 
-// Add config for double exp and other settings
 interface ExpConfig {
   doubleExp: boolean;
   doubleExpEndTime: number | null;
@@ -174,7 +173,6 @@ export class ExpSystem {
     return this.data[id];
   }
 
-  // New method to handle level-up notifications
   static notifyLevelUp(userid: string, newLevel: number, oldLevel: number): void {
     const user = Users.get(userid);
     if (!user || !user.connected) return;
@@ -413,7 +411,7 @@ export const commands: Chat.Commands = {
   },
 
   giveexp(target, room, user) {
-    this.checkCan('globalban');
+    this.checkCan('manager');
     if (!target) return this.sendReply(`Usage: /giveexp [user], [amount], [reason]`);
     const parts = target.split(',').map(p => p.trim());
     if (parts.length < 2) return this.sendReply(`Usage: /giveexp [user], [amount], [reason]`);
@@ -450,7 +448,7 @@ export const commands: Chat.Commands = {
   },
 
   takeexp(target, room, user) {
-    this.checkCan('globalban');
+    this.checkCan('manager');
     if (!target) return this.sendReply(`Usage: /takeexp [user], [amount], [reason]`);
     const parts = target.split(',').map(p => p.trim());
     if (parts.length < 2) return this.sendReply(`Usage: /takeexp [user], [amount], [reason]`);
@@ -487,7 +485,7 @@ export const commands: Chat.Commands = {
   },
 
   resetexp(target, room, user) {
-    this.checkCan('globalban');
+    this.checkCan('manager');
     if (!target) return this.sendReply(`Usage: /resetexp [user], [reason]`);
     const parts = target.split(',').map(p => p.trim());
     const targetUser = Users.get(parts[0]);
@@ -512,7 +510,7 @@ export const commands: Chat.Commands = {
   },
 
   resetexpall(target, room, user) {
-    this.checkCan('globalban');
+    this.checkCan('manager');
     const reason = target.trim() || 'No reason specified.';
 
     ExpSystem.resetAllExp();
@@ -533,7 +531,7 @@ export const commands: Chat.Commands = {
   },
 
   toggledoubleexp(target, room, user) {
-    this.checkCan('globalban');
+    this.checkCan('manager');
     
     if (!target) {
       DOUBLE_EXP = !DOUBLE_EXP;
